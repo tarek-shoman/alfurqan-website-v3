@@ -1,4 +1,5 @@
 import { CheckCircle2, Shield, Clock, Users, Heart, Briefcase , Award , BookOpenCheck, Baby} from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Features() {  
 
@@ -122,6 +123,24 @@ const departments = [
           <p className="text-base sm:text-lg text-gray-600 dark:text-dark-text max-w-3xl mx-auto">
             يوجد لدينا 4 أقسام وهي
           </p>
+        </div>
+
+        <div className="text-center mt-12 sm:mt-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-accent-500 mb-4">
+            تواصل معنا
+          </h2>
+          <div className="w-24 h-1 bg-emerald-500 dark:bg-accent-500 mx-auto mb-6"></div>
+          <p className="text-base sm:text-lg text-gray-600 dark:text-dark-text max-w-3xl mx-auto">
+            هل لديك أي استفسار؟ لا تتردد في التواصل معنا لأي استفسار أو انضمام لأكاديمية الفرقان
+          </p>
+          <div className="flex justify-center gap-4">
+            <Link
+              to="/contact"
+              className="bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/50"
+            >
+              تواصل معنا الآن
+            </Link>
+          </div>
         </div>
 
         <div className="mt-12 sm:mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

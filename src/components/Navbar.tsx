@@ -21,11 +21,11 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "الرئيسية", path: "/" },
-    { name: "من نحن", path: "/about" },
-    { name: "البرامج", path: "/programs" },
+    { name: "عن الأكاديمية", path: "/about" },
+    { name: "البرامج التعليمية", path: "/programs" },
     { name: "حضانة أونلاين", path: "/online-nursery" },
-    { name: "الوظائف", path: "/jobs" },
-    { name: "تواصل معنا", path: "/contact" },
+    { name: "الفرص الوظيفية", path: "/jobs" },
+    { name: "التواصل والإستفسار", path: "/contact" },
   ];
 
   return (

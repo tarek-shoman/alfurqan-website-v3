@@ -26,13 +26,13 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/About" className="text-primary-200 dark:text-primary-300 hover:text-accent-400 dark:hover:text-accent-500 transition-colors">
-                    من نحن
+                  <Link to="/about" className="text-primary-200 dark:text-primary-300 hover:text-accent-400 dark:hover:text-accent-500 transition-colors">
+                    عن الأكاديمية
                   </Link>
                 </li>
                 <li>
-                  <Link to="/Programs" className="text-primary-200 dark:text-primary-300 hover:text-accent-400 dark:hover:text-accent-500 transition-colors">
-                    البرامج
+                  <Link to="/programs" className="text-primary-200 dark:text-primary-300 hover:text-accent-400 dark:hover:text-accent-500 transition-colors">
+                    البرامج التعليمية
                   </Link>
                 </li>
                 <li>
@@ -41,13 +41,8 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/Teachers" className="text-primary-200 dark:text-primary-300 hover:text-accent-400 dark:hover:text-accent-500 transition-colors">
-                    المعلمون
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/Jobs" className="text-primary-200 dark:text-primary-300 hover:text-accent-400 dark:hover:text-accent-500 transition-colors">
-                    الوظائف
+                  <Link to="/jobs" className="text-primary-200 dark:text-primary-300 hover:text-accent-400 dark:hover:text-accent-500 transition-colors">
+                    الفرص الوظيفية
                   </Link>
                 </li>
               </ul>
