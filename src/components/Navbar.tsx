@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import DarkModeToggle from "./DarkModeToggle";
+import logo from "/imgs/logo.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +45,7 @@ export default function Navbar() {
           
           <Link to="/" className="flex items-center gap-3 group">
             <img
-              src="/imgs/logo.png" 
+              src={logo} 
               className="h-12 sm:h-14 transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110"
               alt="شعار أكاديمية الفرقان"
             />

@@ -1,5 +1,6 @@
 import { BookOpen, Heart} from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "/imgs/logo.png";
 
 export default function Hero() {
   return (
@@ -60,7 +61,7 @@ export default function Hero() {
           <div className="order-1 md:order-2 relative hidden md:block">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <div className="aspect-[4/3] bg-gradient-to-br from-emerald-500 to-emerald-600 dark:from-accent-500 dark:to-accent-700 flex items-center justify-center">
-                <img src="/imgs/logo.png" className="pt-6" alt="" />
+                <img src={logo} className="pt-6" alt="" />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/40 to-transparent"></div>
               <div className="absolute bottom-8 right-8 bg-white/95 dark:bg-dark-card/95 backdrop-blur-sm px-6 py-4 rounded-xl shadow-lg">
