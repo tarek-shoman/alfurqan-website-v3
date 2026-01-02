@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json",
     "deploy": "npm run build && gh-pages -d dist",
-    "predeploy": "npm run build"
+    "predeploy": "npm run build",
+    "build:ci": "tsc && vite build && copy .\\dist\\index.html .\\dist\\404.html"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
