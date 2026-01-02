@@ -44,7 +44,7 @@ export default function Navbar() {
           
           <Link to="/" className="flex items-center gap-3 group">
             <img
-              src="/logo.png"
+              src="/imgs/logo.png" 
               className="h-12 sm:h-14 transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110"
               alt="شعار أكاديمية الفرقان"
             />
