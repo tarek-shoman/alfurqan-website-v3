@@ -5,13 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && copy .\\dist\\index.html .\\dist\\404.html",
+    "build": "tsc && vite build && node -e \"import('node:fs').then(fs=>fs.copyFileSync('dist/index.html','dist/404.html'))\"",
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json",
     "deploy": "npm run build && gh-pages -d dist",
     "predeploy": "npm run build",
-    "build:ci": "tsc && vite build && copy .\\dist\\index.html .\\dist\\404.html"
+    "build:ci": "tsc && vite build && node -e \"import('node:fs').then(fs=>fs.copyFileSync('dist/index.html','dist/404.html'))\""
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
