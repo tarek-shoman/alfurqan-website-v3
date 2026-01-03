@@ -92,7 +92,8 @@ export default function Hero() {
                 <p className="text-xs text-gray-600 dark:text-dark-text mb-3">لتعليم وتحفيظ القرآن الكريم أونلاين</p>
                 <div className="flex items-center justify-center gap-1.5 text-gray-500 dark:text-gray-400 text-xs border-t pt-2">
                   <User className="w-2.5 h-2.5" />
-                  <span>Managed by Ahmed Mohie</span>
+                  <span>إدارة الشيخ أحمد محيي</span>
+                  
                 </div>
               </div>
             </div>
