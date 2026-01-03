@@ -123,8 +123,8 @@ export default function Jobs() {
                   <span>تقديم عبر واتساب</span>
                   <MessageCircle className="w-4 h-4" />
                 </a>
-                <p className="text-[13px] text-gray-100 text-center">
-                  تذكير: برجاء كتابة <span className="font-semibold text-emerald-700 dark:text-accent-500">اسم الوظيفة</span> في رسالة الواتس عند التقديم 
+                <p className="text-[13px] text-gray-600 dark:text-gray-100 text-center">
+                  تذكير: برجاء كتابة <span className="font-bold text-emerald-700 dark:text-accent-500">اسم الوظيفة</span> في رسالة الواتس عند التقديم 
                 </p>
               </div>
             </div>

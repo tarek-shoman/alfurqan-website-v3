@@ -1,4 +1,4 @@
-import { BookOpen, Heart} from "lucide-react";
+import { BookOpen, Heart, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "/imgs/logo.png";
 
@@ -78,6 +78,24 @@ export default function Hero() {
             </div>
             <div className="absolute -top-6 -right-6 w-24 h-24 bg-amber-400 rounded-full blur-2xl opacity-60"></div>
             <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-amber-200 rounded-full blur-2xl opacity-60"></div>
+          </div>
+
+          {/* Mobile Landscape Mode - Simple card without logo */}
+          <div className="order-1 md:order-2 relative md:hidden flex items-center justify-center">
+            <div className="bg-white dark:bg-dark-card rounded-2xl shadow-lg border border-gray-200 dark:border-primary-800 p-4 max-w-xs w-full">
+              <div className="text-center">
+                <div className="inline-flex items-center gap-2 bg-emerald-100 dark:bg-accent-100 px-3 py-1.5 rounded-full mb-3">
+                  <Heart className="w-3 h-3 text-emerald-600 dark:text-accent-600" />
+                  <span className="text-emerald-800 dark:text-accent-800 font-medium text-xs">منذ عام 1999</span>
+                </div>
+                <h2 className="text-lg font-bold text-gray-900 dark:text-accent-500 mb-1">أكاديمية الفرقان</h2>
+                <p className="text-xs text-gray-600 dark:text-dark-text mb-3">لتعليم وتحفيظ القرآن الكريم أونلاين</p>
+                <div className="flex items-center justify-center gap-1.5 text-gray-500 dark:text-gray-400 text-xs border-t pt-2">
+                  <User className="w-2.5 h-2.5" />
+                  <span>Managed by Ahmed Mohie</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

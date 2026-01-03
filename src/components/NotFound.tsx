@@ -28,7 +28,7 @@ export default function NotFound() {
   ], []);
 
   useEffect(() => {
-    const duration = 60 * 1000; 
+    const duration = 40 * 1000; 
     const now = Date.now();
     let targetTime = localStorage.getItem('404_redirect_timestamp');
 

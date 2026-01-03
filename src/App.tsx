@@ -9,7 +9,7 @@ const Features = React.lazy(() => import('./components/Features'));
 
 const About = React.lazy(() => import('./components/About'));
 const Programs = React.lazy(() => import('./components/Programs'));
-// const Teachers = React.lazy(() => import('./components/Teachers'));
+const QuranSchool = React.lazy(() => import('./components/QuranSchool'));
 // const Gallery = React.lazy(() => import('./components/Gallery'));
 const Contact = React.lazy(() => import('./components/Contact'));
 const Jobs = React.lazy(() => import('./components/Jobs'));
@@ -19,7 +19,7 @@ const NotFound = React.lazy(() => import('./components/NotFound'));
 function AppContent() {
   const location = useLocation();
   const isNotFoundPage = location.pathname === "*" || location.pathname.includes("404") || 
-    !["/", "/about", "/programs", "/contact", "/jobs", "/online-nursery"].includes(location.pathname);
+    !["/", "/about", "/programs", "/quran-school", "/contact", "/jobs", "/online-nursery"].includes(location.pathname);
 
   return (
     <div className={`min-h-screen bg-cream-50 dark:bg-dark-surface ${isNotFoundPage ? '' : 'pt-16'}`} dir='ltr'> 
@@ -40,7 +40,7 @@ function AppContent() {
           
           <Route path="/about" element={<About />} />
           <Route path="/programs" element={<Programs />} />
-          {/* <Route path="/teachers" element={<Teachers />} /> */}
+          <Route path="/quran-school" element={<QuranSchool />} />
           {/* <Route path="/gallery" element={<Gallery />} /> */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/jobs" element={<Jobs />}/>

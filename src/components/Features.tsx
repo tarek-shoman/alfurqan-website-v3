@@ -1,6 +1,71 @@
 import { CheckCircle2, Shield, Clock, Users, Heart, Briefcase , Award , BookOpenCheck, Baby} from 'lucide-react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 
 export default function Features() {  
+  const [centeredCard, setCenteredCard] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const cardRefs = useRef<(HTMLElement | null)[]>([]);
+
+  const updateCenteredCards = useCallback(() => {
+    if (!isMobile) return;
+    
+    const cards = cardRefs.current.filter(Boolean);
+    if (cards.length === 0) return;
+
+    const viewportCenter = window.innerHeight / 2;
+    let closestCard: number | null = null;
+    let minDistance = Infinity;
+
+    cards.forEach((card, index) => {
+      if (!card) return;
+      const rect = card.getBoundingClientRect();
+      const cardCenter = rect.top + rect.height / 2;
+      const distance = Math.abs(cardCenter - viewportCenter);
+      
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestCard = index;
+      }
+    });
+
+    setCenteredCard(closestCard);
+  }, [isMobile]);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Initial check
+    checkMobile();
+    
+    // Update on resize
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) return;
+    
+    let timeoutId: NodeJS.Timeout;
+
+    const handleScroll = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(updateCenteredCards, 20); // Much faster - 20ms
+    };
+
+    // Initial update
+    updateCenteredCards();
+    
+    // Scroll listener with debouncing
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isMobile, updateCenteredCards]);
 
   const features = [
     {
@@ -86,15 +151,33 @@ const departments = [
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group relative bg-white dark:bg-dark-card border-2 border-cream-400 dark:border-primary-700 p-6 sm:p-8 rounded-2xl hover:border-emerald-300 dark:hover:border-accent-600 hover:shadow-xl transition-all duration-300"
-            >
-              <div className="absolute top-0 right-0 w-20 h-20 bg-emerald-100 dark:bg-accent-100 rounded-bl-full rounded-tr-[110rem] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              ref={(el) => (cardRefs.current[index] = el)}
+              data-index={index}
+              className={`group relative bg-white dark:bg-dark-card border-2 border-cream-400 dark:border-gray-600 p-6 sm:p-8 rounded-2xl transition-all duration-200 ease-out hover:border-emerald-300 dark:hover:border-accent-600 hover:shadow-xl hover:scale-105 active:scale-95 md:hover:scale-100 md:active:scale-100 hover:z-10 hover:-translate-y-2 ${
+                !isMobile && centeredCard === index 
+                  ? 'border-emerald-500 dark:border-emerald-400 shadow-2xl dark:shadow-emerald-500/20 scale-105 -translate-y-3 z-20' 
+                  : isMobile && centeredCard === index
+                  ? 'border-emerald-500 dark:border-emerald-400 shadow-2xl dark:shadow-emerald-500/20 scale-105 -translate-y-3 z-20'
+                  : ''
+              }`}
+              style={{
+                animation: 'fadeInUp 0.4s ease-out forwards',
+                animationDelay: `${index * 80}ms`,
+                opacity: 0,
+                animationFillMode: 'forwards'
+              }}
+              >
+              <div className={`absolute top-0 right-0 w-20 h-20 bg-emerald-100 dark:bg-accent-100 rounded-bl-full rounded-tr-[110rem] transition-opacity duration-300 ${
+                centeredCard === index ? 'opacity-100' : 'opacity-0'
+              } ${!isMobile ? 'group-hover:opacity-100' : ''}`}></div>
               <div className="relative">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 dark:from-accent-500 dark:to-accent-600 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                <div className={`w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 dark:from-accent-500 dark:to-accent-600 rounded-xl flex items-center justify-center mb-5 transition-transform duration-300 ${
+                  centeredCard === index ? 'scale-110' : ''
+                } ${!isMobile ? 'group-hover:scale-110' : ''}`}>
                   <feature.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-accent-400 mb-3 text-right cursor-default">
@@ -121,7 +204,7 @@ const departments = [
           {departments.map((dept, index) => (
             <div
               key={index}
-              className={`bg-white/90 dark:bg-dark-card/90 backdrop-blur-sm rounded-2xl shadow-lg p-6 flex flex-col items-end text-right border-t-4 ${dept.borderColorClass}`}
+              className={`bg-white/90 dark:bg-dark-card/90 backdrop-blur-sm rounded-2xl shadow-lg p-6 flex flex-col items-end text-right border-t-4 ${dept.borderColorClass} hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl md:hover:scale-100 md:active:scale-100`}
             >
               <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${dept.iconBgClass}`}>
                 <dept.icon className={`w-6 h-6 ${dept.iconColorClass}`} />

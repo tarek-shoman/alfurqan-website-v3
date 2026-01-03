@@ -11,7 +11,7 @@ export default function OnlineNursery() {
           <div className="w-24 h-1 bg-primary-600 dark:bg-accent-500 mx-auto mb-6"></div>
         </div>
 
-        <div className="max-w-3xl mx-auto border-2 border-primary-200 dark:border-primary-800 rounded-2xl">
+        <div className="max-w-3xl mx-auto border-2 border-primary-200 dark:border-primary-800 rounded-2xl hover:scale-105 active:scale-95 transition-all duration-300 md:hover:scale-100 md:active:scale-100">
           <div className="bg-white dark:bg-dark-card rounded-3xl shadow-xl p-8 sm:p-12 text-center">
             <div className="flex justify-center mb-8">
               <div className="relative">
@@ -26,11 +26,9 @@ export default function OnlineNursery() {
               قريباً بإذن الله
             </h3>
 
-            <p className="text-base sm:text-lg text-gray-600 dark:text-dark-text mb-8 leading-relaxed">
-              نعمل حالياً على تجهيز منصة حضانة أونلاين تُمكِّنكم من متابعة أبنائكم في
-              حلقات القرآن ومنهج نور البيان من المنزل، مع الحفاظ على نفس الجودة
-              والروح الإيمانية في الأكاديمية.
-            </p>
+              <p className="text-base sm:text-lg text-gray-600 dark:text-dark-text mb-8 leading-relaxed">
+               نعمل حالياً على إطلاق نظامنا التعليمي الذكي؛ ليتمكن طفلك من حضور حصته مباشرة عبر صفحتنا، مع نظام تعليمي متكامل يتضمن مقابلات مباشرة مع المعلمين وفترات استراحة مدروسة تضمن تفاعل الطفل وحيويته.
+              </p>
 
             <div className="bg-gradient-to-r from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 rounded-2xl p-6 sm:p-8 mb-8">
               <div className="flex items-center justify-center gap-3 mb-4">
@@ -54,9 +52,9 @@ export default function OnlineNursery() {
               <div className="bg-primary-100 dark:bg-primary-900/20 p-6 rounded-xl">
                 <h5 className="font-bold text-primary-800 dark:text-primary-400 mb-2">المميزات</h5>
                 <ul className="space-y-2 text-gray-700 dark:text-dark-text text-sm">
-                  <li>• متابعة مباشرة للحلقات</li>
-                  <li>• نفس جودة الأكاديمية</li>
-                  <li>• دعم فني مستمر</li>
+                <li>• دخول سهل ومباشر للحصص عبر الموقع</li>
+                <li>• مقابلة شخصية وتفاعل مباشر مع المعلم</li>
+                <li>• جودة تعليمية تضاهي الحضور الواقعي</li>
                 </ul>
               </div>
               <div className="bg-accent-100 dark:bg-accent-900/20 p-6 rounded-xl">

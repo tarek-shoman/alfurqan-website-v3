@@ -1,12 +1,13 @@
 // src/components/Navbar.tsx
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import DarkModeToggle from "./DarkModeToggle";
 import logo from "/imgs/logo.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
@@ -18,14 +19,37 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      const dropdownElement = document.getElementById('navbar-dropdown');
+      
+      if (dropdownOpen && dropdownElement && !dropdownElement.contains(target)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    if (dropdownOpen) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [dropdownOpen]);
+
   const closeMenu = () => setIsOpen(false);
 
   const navLinks = [
     { name: "الرئيسية", path: "/" },
-    { name: "عن الأكاديمية", path: "/about" },
+    { name: "مدرسة القرآن", path: "/quran-school" },
     { name: "البرامج التعليمية", path: "/programs" },
     { name: "حضانة أونلاين", path: "/online-nursery" },
     { name: "الفرص الوظيفية", path: "/jobs" },
+  ];
+  
+  const dropdownLinks = [
+    { name: "عن الأكاديمية", path: "/about" },
     { name: "التواصل والإستفسار", path: "/contact" },
   ];
 
@@ -57,12 +81,66 @@ export default function Navbar() {
             </div>
           </Link>
 
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-2">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 className={`relative px-4 py-2 text-sm font-bold transition-all duration-300 group ${
+                  location.pathname === link.path 
+                  ? "text-emerald-600 dark:text-accent-500" 
+                  : "text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-accent-500"
+                }`}
+              >
+                {link.name}
+                <span className={`absolute bottom-0 left-0 h-0.5 bg-emerald-500 dark:bg-accent-500 transition-all duration-300 ${
+                  location.pathname === link.path ? "w-full" : "w-0 group-hover:w-full"
+                }`}></span>
+              </Link>
+            ))}
+            
+            {/* Dropdown for remaining links */}
+            <div id="navbar-dropdown" className="relative">
+              <button
+                className={`flex items-center gap-1 px-4 py-2 text-sm font-bold transition-all duration-300 ${
+                  dropdownLinks.some(link => location.pathname === link.path)
+                    ? "text-emerald-600 dark:text-accent-500" 
+                    : "text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-accent-500"
+                }`}
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+              >
+                المزيد
+                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${dropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {dropdownOpen && (
+                <div className="absolute top-[calc(100%+8px)] right-0 bg-white dark:bg-dark-card backdrop-blur-xl rounded-xl shadow-2xl border border-cream-200 dark:border-primary-800 min-w-[200px]">
+                  {dropdownLinks.map((link) => (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      className={`block px-4 py-3 text-sm font-bold transition-all text-right ${
+                        location.pathname === link.path 
+                          ? "bg-emerald-100/50 dark:bg-primary-900/50 text-emerald-700 dark:text-accent-400" 
+                          : "text-gray-700 dark:text-gray-300 hover:bg-cream-100 dark:hover:bg-primary-800"
+                      }`}
+                      onClick={() => setDropdownOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Medium screens - show all links */}
+          <div className="hidden md:flex lg:hidden items-center gap-1">
+            {[...navLinks, ...dropdownLinks].map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`relative px-3 py-2 text-xs font-bold transition-all duration-300 group ${
                   location.pathname === link.path 
                   ? "text-emerald-600 dark:text-accent-500" 
                   : "text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-accent-500"
@@ -96,7 +174,7 @@ export default function Navbar() {
       >
         <div className="bg-cream-50 dark:bg-dark-card backdrop-blur-xl rounded-2xl shadow-2xl border border-cream-200 dark:border-primary-800 p-4">
           <div className="flex flex-col gap-1">
-            {navLinks.map((link) => (
+            {[...navLinks, ...dropdownLinks].map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
