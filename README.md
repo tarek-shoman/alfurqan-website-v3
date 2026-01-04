@@ -41,12 +41,12 @@
 
 ### 🏠 الصفحة الرئيسية
 <div align="center">
-  <img src="/imgs/halqat.jpg" alt="الصفحة الرئيسية" width="800" style="border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+  <img src="../data/FireShot Capture 037 - أكاديمية الفرقان لتحفيظ القرآن - [localhost].png" alt="الصفحة الرئيسية" width="800" style="border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
 </div>
 
 ### 📚 البرامج التعليمية
 <div align="center">
-  <img src="/imgs/fosol.jpg!w700wp" alt="البرامج التعليمية" width="800" style="border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+  <img src="../data/FireShot Capture 038 - أكاديمية الفرقان لتحفيظ القرآن - [localhost].png" alt="البرامج التعليمية" width="800" style="border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
 </div>
 
 ---
@@ -198,7 +198,6 @@ npm run deploy
   <h3>📧 للتواصل والاستفسارات</h3>
   
   **طارق شومان**  
-  📱 +20 111 229 2787  
   📧 tarek.contact.us@gmail.com
   
   <div>
