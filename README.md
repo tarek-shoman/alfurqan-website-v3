@@ -1,8 +1,7 @@
 # 🕌 أكاديمية الفرقان لتعليم القرآن والنور البيان
 
 <div align="center">
-  <img src="/imgs/logo.png" alt="شعار أكاديمية الفرقان" width="200" height="200">
-  
+
   <h3>منصة تعليمية إسلامية متكاملة لتعليم القرآن الكريم واللغة العربية</h3>
   
   ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -34,20 +33,6 @@
 </div>
 
 **👉 [https://tarek-shoman.github.io/alfurqan-website-v3/](https://tarek-shoman.github.io/alfurqan-website-v3/)**
-
----
-
-## 📸 لقطات من الموقع
-
-### 🏠 الصفحة الرئيسية
-<div align="center">
-  <img src="../data/FireShot Capture 037 - أكاديمية الفرقان لتحفيظ القرآن - [localhost].png" alt="الصفحة الرئيسية" width="800" style="border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-</div>
-
-### 📚 البرامج التعليمية
-<div align="center">
-  <img src="../data/FireShot Capture 038 - أكاديمية الفرقان لتحفيظ القرآن - [localhost].png" alt="البرامج التعليمية" width="800" style="border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-</div>
 
 ---
 
